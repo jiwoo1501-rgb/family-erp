@@ -164,8 +164,27 @@ export function renderSettings(container) {
     let endpoint = document.getElementById('ollama-endpoint').value.trim();
     const model = document.getElementById('ollama-model').value.trim();
     
-    if (!endpoint || !model) {
-      showToast('주소와 모델명을 모두 입력해주세요', 'warning');
+    if (!endpoint) {
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        endpoint = '/api/ollama';
+      } else {
+        showToast('웹(GitHub Pages) 환경에서는 ngrok 등 HTTPS 주소를 필수로 입력해야 합니다.', 'error');
+        return;
+      }
+    }
+
+    if (endpoint.startsWith('/') && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      showToast('상대경로(/api/ollama)는 로컬에서만 동작합니다. 전체 URL을 입력해주세요.', 'error');
+      return;
+    }
+    
+    if (endpoint.startsWith('http://') && window.location.protocol === 'https:') {
+      showToast('HTTPS 사이트에서는 http:// 주소로 통신할 수 없습니다. ngrok https 주소를 사용하세요.', 'error');
+      return;
+    }
+
+    if (!model) {
+      showToast('모델명을 입력해주세요', 'warning');
       return;
     }
     

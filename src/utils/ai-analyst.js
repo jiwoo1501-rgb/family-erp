@@ -50,7 +50,24 @@ ${recentTxs.length > 0 ? recentTxs.join('\n') : '지출 내역 없음'}
 위 데이터를 종합하여 우리 가족이 돈을 잘 쓰고 있는지 분석해주고, 따뜻하고 귀여운 말투로 실천 가능한 절약 조언이나 칭찬 1가지를 작성해줘!`;
 
   // 엔드포인트 URL 정제
-  let baseUrl = settings.ollamaEndpoint || '/api/ollama';
+  let baseUrl = settings.ollamaEndpoint;
+  
+  if (!baseUrl) {
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      baseUrl = '/api/ollama'; // 로컬 개발 환경용 프록시
+    } else {
+      throw new Error("웹 환경에서는 설정에서 Ollama API 주소(ngrok HTTPS 등)를 입력해야 합니다.");
+    }
+  }
+
+  if (baseUrl.startsWith('/') && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    throw new Error("웹 환경에서는 상대경로(/api/ollama)를 사용할 수 없습니다. 전체 주소를 입력해주세요.");
+  }
+  
+  if (baseUrl.startsWith('http://') && window.location.protocol === 'https:') {
+    throw new Error("보안 연결(HTTPS) 환경에서는 http:// 주소를 사용할 수 없습니다. ngrok 등의 https 주소를 사용해주세요.");
+  }
+
   if (baseUrl.endsWith('/')) {
     baseUrl = baseUrl.slice(0, -1);
   }
@@ -75,6 +92,9 @@ ${recentTxs.length > 0 ? recentTxs.join('\n') : '지출 내역 없음'}
     });
 
     if (!response.ok) {
+      if (response.status === 405 || response.status === 404) {
+        throw new Error(`주소 오류 (${response.status}): 설정에서 Ollama API 주소를 다시 확인해주세요.`);
+      }
       throw new Error(`HTTP 에러! 상태코드: ${response.status}`);
     }
 
@@ -82,6 +102,10 @@ ${recentTxs.length > 0 ? recentTxs.join('\n') : '지출 내역 없음'}
     return result.response;
   } catch (error) {
     console.error('Ollama AI 분석 실패:', error);
+    // CORS나 혼합 콘텐츠(Mixed Content) 에러는 TypeError로 나타남
+    if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+      throw new Error("네트워크 오류: Ollama 서버가 실행 중이 아니거나, CORS 설정(OLLAMA_ORIGINS=\"*\")이 필요합니다.");
+    }
     throw error;
   }
 }
