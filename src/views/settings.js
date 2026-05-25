@@ -180,7 +180,10 @@ export function renderSettings(container) {
     try {
       const response = await fetch(`${endpoint}/api/generate`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true'
+        },
         body: JSON.stringify({
           model: model,
           prompt: 'Hi',

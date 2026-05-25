@@ -61,6 +61,7 @@ ${recentTxs.length > 0 ? recentTxs.join('\n') : '지출 내역 없음'}
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true'
       },
       body: JSON.stringify({
         model: settings.ollamaModel || 'gemma4:e2b',
