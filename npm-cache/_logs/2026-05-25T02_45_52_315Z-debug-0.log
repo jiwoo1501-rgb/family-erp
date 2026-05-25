@@ -1,0 +1,134 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@11.11.0
+2 info using node@v24.14.1
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/jiwoo/.gemini/antigravity-ide/scratch/family-erp/.npmrc
+5 silly config load:file:/Users/jiwoo/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install @capacitor/core
+8 verbose argv "install" "--cache" "./npm-cache" "@capacitor/core"
+9 verbose logfile logs-max:10 dir:/Users/jiwoo/.gemini/antigravity-ide/scratch/family-erp/npm-cache/_logs/2026-05-25T02_45_52_315Z-
+10 verbose logfile /Users/jiwoo/.gemini/antigravity-ide/scratch/family-erp/npm-cache/_logs/2026-05-25T02_45_52_315Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+14 silly idealTree buildDeps
+15 silly fetch manifest @capacitor/core@*
+16 silly packumentCache full:https://registry.npmjs.org/@capacitor%2fcore cache-miss
+17 http fetch GET 200 https://registry.npmjs.org/npm 189ms
+18 http fetch GET 200 https://registry.npmjs.org/@capacitor%2fcore 206ms (cache miss)
+19 silly packumentCache full:https://registry.npmjs.org/@capacitor%2fcore set size:undefined disposed:false
+20 silly placeDep ROOT @capacitor/core@8.3.4 OK for: family-erp@1.0.0 want: *
+21 silly fetch manifest tslib@^2.1.0
+22 silly packumentCache full:https://registry.npmjs.org/tslib cache-miss
+23 http fetch GET 200 https://registry.npmjs.org/tslib 29ms (cache miss)
+24 silly packumentCache full:https://registry.npmjs.org/tslib set size:undefined disposed:false
+25 silly placeDep ROOT tslib@2.8.1 OK for: @capacitor/core@8.3.4 want: ^2.1.0
+26 silly reify moves {}
+27 silly audit bulk request {
+27 silly audit   '@esbuild/aix-ppc64': [ '0.25.12' ],
+27 silly audit   '@esbuild/android-arm': [ '0.25.12' ],
+27 silly audit   '@esbuild/android-arm64': [ '0.25.12' ],
+27 silly audit   '@esbuild/android-x64': [ '0.25.12' ],
+27 silly audit   '@esbuild/darwin-arm64': [ '0.25.12' ],
+27 silly audit   '@esbuild/darwin-x64': [ '0.25.12' ],
+27 silly audit   '@esbuild/freebsd-arm64': [ '0.25.12' ],
+27 silly audit   '@esbuild/freebsd-x64': [ '0.25.12' ],
+27 silly audit   '@esbuild/linux-arm': [ '0.25.12' ],
+27 silly audit   '@esbuild/linux-arm64': [ '0.25.12' ],
+27 silly audit   '@esbuild/linux-ia32': [ '0.25.12' ],
+27 silly audit   '@esbuild/linux-loong64': [ '0.25.12' ],
+27 silly audit   '@esbuild/linux-mips64el': [ '0.25.12' ],
+27 silly audit   '@esbuild/linux-ppc64': [ '0.25.12' ],
+27 silly audit   '@esbuild/linux-riscv64': [ '0.25.12' ],
+27 silly audit   '@esbuild/linux-s390x': [ '0.25.12' ],
+27 silly audit   '@esbuild/linux-x64': [ '0.25.12' ],
+27 silly audit   '@esbuild/netbsd-arm64': [ '0.25.12' ],
+27 silly audit   '@esbuild/netbsd-x64': [ '0.25.12' ],
+27 silly audit   '@esbuild/openbsd-arm64': [ '0.25.12' ],
+27 silly audit   '@esbuild/openbsd-x64': [ '0.25.12' ],
+27 silly audit   '@esbuild/openharmony-arm64': [ '0.25.12' ],
+27 silly audit   '@esbuild/sunos-x64': [ '0.25.12' ],
+27 silly audit   '@esbuild/win32-arm64': [ '0.25.12' ],
+27 silly audit   '@esbuild/win32-ia32': [ '0.25.12' ],
+27 silly audit   '@esbuild/win32-x64': [ '0.25.12' ],
+27 silly audit   '@kurkle/color': [ '0.3.4' ],
+27 silly audit   '@napi-rs/canvas': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-android-arm64': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-darwin-arm64': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-darwin-x64': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-linux-arm-gnueabihf': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-linux-arm64-gnu': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-linux-arm64-musl': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-linux-riscv64-gnu': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-linux-x64-gnu': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-linux-x64-musl': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-win32-arm64-msvc': [ '0.1.100' ],
+27 silly audit   '@napi-rs/canvas-win32-x64-msvc': [ '0.1.100' ],
+27 silly audit   '@rollup/rollup-android-arm-eabi': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-android-arm64': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-darwin-arm64': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-darwin-x64': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-freebsd-arm64': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-freebsd-x64': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-arm-gnueabihf': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-arm-musleabihf': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-arm64-gnu': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-arm64-musl': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-loong64-gnu': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-loong64-musl': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-ppc64-gnu': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-ppc64-musl': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-riscv64-gnu': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-riscv64-musl': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-s390x-gnu': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-x64-gnu': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-linux-x64-musl': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-openbsd-x64': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-openharmony-arm64': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-win32-arm64-msvc': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-win32-ia32-msvc': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-win32-x64-gnu': [ '4.60.4' ],
+27 silly audit   '@rollup/rollup-win32-x64-msvc': [ '4.60.4' ],
+27 silly audit   '@types/estree': [ '1.0.8' ],
+27 silly audit   'chart.js': [ '4.5.1' ],
+27 silly audit   esbuild: [ '0.25.12' ],
+27 silly audit   fdir: [ '6.5.0' ],
+27 silly audit   fsevents: [ '2.3.3' ],
+27 silly audit   nanoid: [ '3.3.12' ],
+27 silly audit   'pdfjs-dist': [ '4.10.38' ],
+27 silly audit   picocolors: [ '1.1.1' ],
+27 silly audit   picomatch: [ '4.0.4' ],
+27 silly audit   postcss: [ '8.5.15' ],
+27 silly audit   rollup: [ '4.60.4' ],
+27 silly audit   'source-map-js': [ '1.2.1' ],
+27 silly audit   tinyglobby: [ '0.2.16' ],
+27 silly audit   vite: [ '6.4.2' ],
+27 silly audit   '@capacitor/core': [ '8.3.4' ],
+27 silly audit   tslib: [ '2.8.1' ]
+27 silly audit }
+28 http cache @capacitor/core@https://registry.npmjs.org/@capacitor/core/-/core-8.3.4.tgz 0ms (cache hit)
+29 http cache tslib@https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz 0ms (cache hit)
+30 http cache fsevents@https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz 0ms (cache hit)
+31 silly tarball no local data for @capacitor/core@https://registry.npmjs.org/@capacitor/core/-/core-8.3.4.tgz. Extracting by manifest.
+32 silly tarball no local data for tslib@https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz. Extracting by manifest.
+33 silly tarball no local data for fsevents@https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz. Extracting by manifest.
+34 http fetch GET 200 https://registry.npmjs.org/@capacitor/core/-/core-8.3.4.tgz 49ms (cache miss)
+35 http fetch GET 200 https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz 65ms (cache miss)
+36 http fetch GET 200 https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz 65ms (cache miss)
+37 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 149ms
+38 silly audit report {}
+39 silly ADD node_modules/tslib
+40 silly ADD node_modules/@capacitor/core
+41 silly ADD node_modules/fsevents
+42 verbose cwd /Users/jiwoo/.gemini/antigravity-ide/scratch/family-erp
+43 verbose os Darwin 25.5.0
+44 verbose node v24.14.1
+45 verbose npm  v11.11.0
+46 notice
+46 notice New minor version of npm available! 11.11.0 -> 11.15.0
+46 notice Changelog: https://github.com/npm/cli/releases/tag/v11.15.0
+46 notice To update run: npm install -g npm@11.15.0
+46 notice  { force: true, Symbol(proc-log.meta): true }
+47 verbose exit 0
+48 info ok

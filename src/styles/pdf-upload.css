@@ -1,0 +1,275 @@
+/* ========== PDF Upload — Cute ========== */
+.pdf-upload-zone {
+  border: 2.5px dashed rgba(192, 132, 252, 0.3);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+.pdf-upload-zone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pdf-upload-zone:hover,
+.pdf-upload-zone.dragover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow-primary);
+  transform: scale(1.01);
+}
+
+.pdf-upload-zone:hover::before,
+.pdf-upload-zone.dragover::before {
+  opacity: 0.04;
+}
+
+.pdf-upload-zone__content {
+  position: relative;
+  z-index: 1;
+}
+
+.pdf-upload-zone__icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-md);
+  display: block;
+  animation: bounce 2.5s ease-in-out infinite;
+}
+
+.pdf-upload-zone__title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+.pdf-upload-zone__desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-lg);
+  line-height: 1.7;
+}
+
+.pdf-upload-zone__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 12px 28px;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.pdf-upload-zone__btn:hover {
+  box-shadow: 0 6px 28px rgba(192, 132, 252, 0.4);
+  transform: translateY(-3px);
+}
+
+.pdf-upload-input {
+  display: none;
+}
+
+/* Processing State */
+.pdf-processing {
+  padding: var(--space-2xl);
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.pdf-processing__progress {
+  width: 100%;
+  max-width: 400px;
+  height: 8px;
+  background: var(--bg-glass);
+  border-radius: 4px;
+  margin: var(--space-lg) auto;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.pdf-processing__progress-bar {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.pdf-processing__progress-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 1.5s infinite;
+  background-size: 200% 100%;
+}
+
+.pdf-processing__status {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Results */
+.pdf-results {
+  animation: fadeIn 0.4s ease;
+}
+
+.pdf-results__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.pdf-results__summary {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.pdf-results__stat {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.pdf-results__stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+}
+
+.pdf-results__stat-value {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+}
+
+/* Parsed Transaction Item */
+.parsed-tx-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-sm);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-card);
+}
+
+.parsed-tx-item:hover {
+  border-color: rgba(192, 132, 252, 0.25);
+  transform: translateX(3px);
+}
+
+.parsed-tx-check {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent-primary);
+  cursor: pointer;
+}
+
+.parsed-tx-info {
+  min-width: 0;
+}
+
+.parsed-tx-desc {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.parsed-tx-date {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.parsed-tx-category {
+  min-width: 120px;
+}
+
+.parsed-tx-category select {
+  width: 100%;
+  padding: 7px 12px;
+  background: var(--bg-glass);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-xs);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23B8ADCC' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 24px;
+}
+
+.parsed-tx-category select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.parsed-tx-amount {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  min-width: 100px;
+  text-align: right;
+}
+
+/* Raw Text Preview */
+.pdf-raw-text {
+  margin-top: var(--space-lg);
+}
+
+.pdf-raw-text__content {
+  background: var(--bg-glass);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'SF Mono', 'Consolas', monospace;
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .pdf-upload-zone {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .pdf-results__summary {
+    flex-direction: column;
+  }
+
+  .parsed-tx-item {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .parsed-tx-category {
+    display: none;
+  }
+}
